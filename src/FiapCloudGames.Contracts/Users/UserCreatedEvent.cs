@@ -7,7 +7,7 @@ public record UserCreatedEvent(
     Guid UserId,
     string Name,
     string Email,
-    Guid RoleId) : IIntegrationEvent
+    RoleType Role) : IIntegrationEvent
 {
     public Guid EventId { get; init; } = Guid.NewGuid();
 
