@@ -2,6 +2,9 @@ name: Publish NuGet
 
 # Publica o pacote no nuget.org quando uma release do GitHub é publicada.
 # A versão do pacote vem da tag da release (ex.: tag "v1.2.0" -> pacote 1.2.0).
+# Autenticação via Trusted Publishing (OIDC): nenhuma API key de longa duração é
+# armazenada. O workflow troca um token OIDC do GitHub por uma chave temporária
+# (válida por ~1h, uso único) emitida pelo nuget.org.
 on:
   release:
     types: [published]
@@ -9,6 +12,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # habilita a emissão do token OIDC do GitHub para este job
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -26,8 +32,15 @@ jobs:
           -o out
           /p:Version=${{ steps.version.outputs.value }}
 
+      - name: NuGet login (OIDC -> chave temporária)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          # Nome de usuário (profile name) do nuget.org, NÃO o e-mail.
+          user: ${{ secrets.NUGET_USER }}
+
       - name: Push para nuget.org
         run: dotnet nuget push "out/*.nupkg"
-          --api-key ${{ secrets.NUGET_API_KEY }}
+          --api-key ${{ steps.login.outputs.NUGET_API_KEY }}
           --source https://api.nuget.org/v3/index.json
           --skip-duplicate

@@ -44,7 +44,12 @@ Segue [SemVer](https://semver.org). Contratos são `record` imutáveis:
 ## Publicação
 
 Automática via GitHub Actions: ao publicar uma **release** com tag `vX.Y.Z`, o pacote
-`X.Y.Z` é enviado ao nuget.org. Requer o secret `NUGET_API_KEY` configurado no repositório.
+`X.Y.Z` é enviado ao nuget.org. A autenticação usa **Trusted Publishing (OIDC)** — não há
+API key de longa duração armazenada. Pré-requisitos (uma vez):
+
+1. Em nuget.org → **Trusted Publishing**, crie uma policy: Repository Owner `pdelfino0`,
+   Repository `fcg-contracts`, Workflow File `publish.yml` (sem Environment).
+2. Defina o secret `NUGET_USER` no repositório com seu nome de usuário (profile) do nuget.org.
 
 ```bash
 # Publicação manual (alternativa)
