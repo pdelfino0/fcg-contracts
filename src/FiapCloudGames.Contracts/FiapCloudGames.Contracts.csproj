@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+
+        <!-- Metadados do pacote NuGet -->
+        <PackageId>FiapCloudGames.Contracts</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>FIAP Cloud Games Team</Authors>
+        <Description>Contratos de eventos de integração compartilhados entre os microsserviços do FIAP Cloud Games.</Description>
+        <PackageTags>fcg;contracts;events;messaging;rabbitmq</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/pdelfino0/fcg-contracts</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageProjectUrl>https://github.com/pdelfino0/fcg-contracts</PackageProjectUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+</Project>
