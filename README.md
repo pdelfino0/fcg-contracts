@@ -15,8 +15,7 @@ dotnet add package FiapCloudGames.Contracts
 | Tipo | Descrição |
 |------|-----------|
 | `IIntegrationEvent` | Contrato base (EventId, OccurredAt) de todo evento. |
-| `Users.UserRegisteredEvent` | Usuário se auto-registrou. |
-| `Users.UserCreatedEvent` | Administrador criou um usuário. |
+| `Users.UserRegisteredEvent` | Usuário se auto-registrou (também usado quando um admin cria o usuário). |
 | `Users.UserMessaging` | Nome da exchange e routing keys dos eventos de usuário. |
 
 ## Uso
