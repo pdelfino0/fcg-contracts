@@ -12,6 +12,5 @@ public static class UserMessaging
     public static class RoutingKeys
     {
         public const string Registered = "user.registered";
-        public const string Created = "user.created";
     }
 }

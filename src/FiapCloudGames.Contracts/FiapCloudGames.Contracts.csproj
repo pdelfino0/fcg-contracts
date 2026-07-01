@@ -8,7 +8,7 @@
 
         <!-- Metadados do pacote NuGet -->
         <PackageId>FiapCloudGames.Contracts</PackageId>
-        <Version>3.0.0</Version>
+        <Version>4.0.0</Version>
         <Authors>FIAP Cloud Games Team</Authors>
         <Description>Contratos de eventos de integração compartilhados entre os microsserviços do FIAP Cloud Games.</Description>
         <PackageTags>fcg;contracts;events;messaging;rabbitmq</PackageTags>
