@@ -6,8 +6,7 @@ namespace FiapCloudGames.Contracts.Users;
 public record UserRegisteredEvent(
     Guid UserId,
     string Name,
-    string Email,
-    RoleType Role) : IIntegrationEvent
+    string Email) : IIntegrationEvent
 {
     public Guid EventId { get; init; } = Guid.NewGuid();
 

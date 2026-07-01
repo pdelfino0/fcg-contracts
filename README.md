@@ -17,7 +17,6 @@ dotnet add package FiapCloudGames.Contracts
 | `IIntegrationEvent` | Contrato base (EventId, OccurredAt) de todo evento. |
 | `Users.UserRegisteredEvent` | Usuário se auto-registrou. |
 | `Users.UserCreatedEvent` | Administrador criou um usuário. |
-| `Users.RoleType` | Papel do usuário (`User`, `Administrator`) carregado nos eventos. |
 | `Users.UserMessaging` | Nome da exchange e routing keys dos eventos de usuário. |
 
 ## Uso
@@ -25,7 +24,7 @@ dotnet add package FiapCloudGames.Contracts
 **Produtor** (UsersAPI) serializa e publica:
 
 ```csharp
-var evt = new UserRegisteredEvent(user.Id, user.Name, user.Email, RoleType.User);
+var evt = new UserRegisteredEvent(user.Id, user.Name, user.Email);
 // publica em UserMessaging.Exchange com routing key UserMessaging.RoutingKeys.Registered
 ```
 
